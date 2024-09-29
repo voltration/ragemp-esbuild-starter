@@ -1,0 +1,23 @@
+{
+  "name": "ragemp-esbuild-starter",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "npm run scripts/build.ts"
+  },
+  "devDependencies": {
+    "@ragempcommunity/types-client": "^2.1.8",
+    "@ragempcommunity/types-server": "^2.1.8",
+    "colorette": "^2.0.20",
+    "esbuild": "^0.24.0",
+    "esbuild-plugin-clean": "^1.0.1",
+    "esbuild-svelte": "^0.8.2",
+    "svelte-preprocess": "^6.0.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "svelte": "^4.2.19"
+  }
+}
