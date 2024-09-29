@@ -9,17 +9,15 @@ export async function buildSvelte() {
     const rootDir = process.cwd();
     const tempPath = join(rootDir, ".temp");
     const outputDir = join(rootDir, "dist/client_packages/web");
-
+    const entryFiles = await glob("src/web/**/*.svelte");
+    
     await mkdir(tempPath, { recursive: true });
     await mkdir(outputDir, { recursive: true });
-
-    // Use glob to find all .svelte files in the src/web directory
-    const entryFiles = await glob("src/web/**/*.svelte");
 
     await Promise.all(
         entryFiles.map(async (file) => {
             const name = basename(file, extname(file));
-            const relativePath = relative(tempPath, file).replace(/\\/g, '/'); // Replace backslashes for Windows compatibility
+            const relativePath = relative(tempPath, file).replace(/\\/g, '/');
 
             const tsContent = `
                 import App from "${relativePath}";
@@ -28,14 +26,12 @@ export async function buildSvelte() {
                 });
             `;
 
-            // Create the .ts file in .temp directory
+
             const tsFilePath = join(tempPath, `${name}.ts`);
             await writeFile(tsFilePath, tsContent.trim());
-            console.log(`Created: ${name}.ts with relative path: ${relativePath}`);
         })
     );
 
-    // Run esbuild to bundle all .ts files
     await build({
         bundle: true,
         metafile: true,
@@ -51,12 +47,11 @@ export async function buildSvelte() {
         ],
     });
 
-    // Generate an HTML file for each .ts entry file in the output directory
     await Promise.all(
         entryFiles.map(async (file) => {
             const name = basename(file, extname(file));
-            const jsFilePath = `./${name}.js`; // Assuming esbuild will output a .js file with the same name in outdir
-            const cssFilePath = `./${name}.css`; // You can change this if a specific CSS file is generated
+            const jsFilePath = `./${name}.js`;
+            const cssFilePath = `./${name}.css`;
 
             const htmlContent = `
                 <!doctype html>
@@ -74,12 +69,8 @@ export async function buildSvelte() {
                 </html>
             `;
 
-            // Write the HTML file to the dist directory
             const htmlFilePath = join(outputDir, `${name}.html`);
             await writeFile(htmlFilePath, htmlContent.trim());
-            console.log(`Created: ${name}.html linking to ${jsFilePath}`);
         })
     );
-
-    console.log('Build complete!');
 }
