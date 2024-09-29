@@ -9,9 +9,6 @@ export async function buildServer() {
         platform: "node",
         entryPoints: ["src/server/main.ts"],
         outdir: "dist/packages/core",
-        plugins: [clean({
-            patterns: ["dist/packages/*"]
-        })],
     });
 
     /** client */
@@ -21,9 +18,6 @@ export async function buildServer() {
         platform: "node",
         entryPoints: ["src/client/main.ts"],
         outdir: "dist/client_packages",
-        plugins: [clean({
-            patterns: ["dist/client_packages/*"]
-        })],
     });
 }
 

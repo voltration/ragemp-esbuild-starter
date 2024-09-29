@@ -10,7 +10,7 @@ export async function buildSvelte() {
     const tempPath = join(rootDir, ".temp");
     const outputDir = join(rootDir, "dist/client_packages/web");
     const entryFiles = await glob("src/web/**/*.svelte");
-    
+
     await mkdir(tempPath, { recursive: true });
     await mkdir(outputDir, { recursive: true });
 
@@ -42,7 +42,11 @@ export async function buildSvelte() {
         outdir: outputDir,
         plugins: [
             esbuildSvelte({
-                preprocess: sveltePreprocess(),
+                preprocess: sveltePreprocess({
+                    typescript: {
+                        tsconfigFile: "./src/web/tsconfig.json"
+                    }
+                }),
             }),
         ],
     });

@@ -12,6 +12,6 @@
 
 <style>
     button {
-        background-color: blue;
+        background-color: wheat;
     }
 </style>
