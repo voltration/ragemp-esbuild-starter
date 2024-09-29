@@ -9,3 +9,9 @@
 <button on:click={increment}>
     {count}
 </button>
+
+<style>
+    button {
+        background-color: blue;
+    }
+</style>
