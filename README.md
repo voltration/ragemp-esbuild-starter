@@ -4,7 +4,7 @@
 </div>
 
 > [!WARNING]  
-> This project is not complete yet. I may change this at anytime...
+> This project is not complete yet. I may change this at any time...
 
 # Roadmap
 | Web frameworks to be added  | Done |
@@ -30,7 +30,7 @@ bun i
 ```
 
 ### Drop server files in dist directory
-> [!NOTE]  
+> [!TIP]  
 > Linux server files can be located [here](https://cdn.rage.mp/updater/prerelease/server-files/linux_x64.tar.gz).
 
 From where your RAGE:MP installation is located, retrieve copy the contents for `server-files` and drop them into `dist`.
