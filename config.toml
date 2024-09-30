@@ -1,0 +1,42 @@
+[config]
+production=false
+
+[server]
+name = "RAGE:MP Unofficial Server"
+gamemode = "Freeroam"
+announce = false
+bind = "127.0.0.1"
+port = 22005
+maxplayers = 100
+stream-distance = 500.0
+disallow-multiple-connections-per-ip = false
+limit-time-of-connections-per-ip = 0
+url = ""
+language = "us"
+sync-rate = 40
+resource-scan-thread-limit = 0
+max-ping = 0
+min-fps = 0
+max-packet-loss = 0
+allow-cef-debugging = false
+enable-nodejs = true
+csharp = "disabled"
+enable-http-security = false
+voice-chat = false
+allow-voice-chat-input = true
+voice-chat-sample-rate = 48000
+resource = ["freeroam"]
+fastdl-host = ""
+server-side-weapons-only-mode = true
+api-threading-debugging = false
+fqdn = ""
+resources-compression-level = 1
+node-commandline-flags = ""
+synchronization-extrapolation-multiplier = 0.0
+http-threads = 50
+trigger-compression-logging = false
+trigger-compression-training = false
+trigger-compression-dictionary = ""
+create-fastdl-snapshot = false
+disable-client-packages-ram-cache = false
+client-packages-shared-folder = ""
