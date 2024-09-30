@@ -3,6 +3,7 @@ import { rimraf } from "rimraf";
 import { buildServer } from "./server.build";
 import { buildSvelte } from "./svelte.build";
 import { buildConfig } from "./conf.build";
+import { buildReact } from "./react.build";
 
 const start = performance.now();
 
@@ -16,8 +17,8 @@ async function clean() {
 	await clean();
 	await buildServer();
 	await buildSvelte();
+	await buildReact();
 	await buildConfig();
-
 	const end = performance.now();
 
 	console.log(

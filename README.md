@@ -9,9 +9,14 @@
 # Roadmap
 | Web frameworks to be added  | Done |
 | --- | --- |
-| Svelte  | X  |
+| Svelte  | X |
+| React | X |
 | Vue  |   |
-| React |   |
+
+# Features
+* Full RAGE:MP typing for the client, server and CEF
+* Fast build times (thanks to [esbuild](https://esbuild.github.io/))
+* Biome.js for linting and formatting
 
 # Installation
 > [!NOTE]  
@@ -43,6 +48,12 @@ From where your RAGE:MP installation is located, retrieve copy the contents for 
 ### Build your project
 ```
 bun run build (add --watch if you want to watch src directory)
+```
+
+### Linting and formatting
+```
+bun run lint
+bun run format
 ```
 
 This project was created using `bun init` in bun v1.1.22. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.

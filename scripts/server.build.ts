@@ -7,7 +7,7 @@ export async function buildServer() {
 		metafile: true,
 		platform: "node",
 		entryPoints: ["src/server/main.ts"],
-		outdir: "dist/packages/core",
+		outfile: "dist/packages/core/index.js",
 	});
 
 	/** client */
@@ -16,6 +16,6 @@ export async function buildServer() {
 		metafile: true,
 		platform: "node",
 		entryPoints: ["src/client/main.ts"],
-		outdir: "dist/client_packages",
+		outfile: "dist/client_packages/index.js",
 	});
 }

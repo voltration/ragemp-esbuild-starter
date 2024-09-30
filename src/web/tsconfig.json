@@ -2,7 +2,15 @@
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
 		"types": ["@ragempcommunity/types-cef"],
-		"typeRoots": ["../../node_modules/@ragempcommunity/types-cef"]
+		"typeRoots": ["../../node_modules/@ragempcommunity/types-cef"],
+		"jsx": "react-jsx",
+		"jsxImportSource": "react"
 	},
-	"include": ["./**/*.ts", "./**/*.svelte", "./global.d.ts"]
+	"include": [
+		"./**/*.ts",
+		"./**/*.tsx",
+		"./**/*.svelte",
+		"./global.d.ts",
+		"../../App.svelte"
+	]
 }
