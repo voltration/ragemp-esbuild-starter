@@ -2,6 +2,7 @@ import { bold, green, white, yellow } from "colorette";
 import { rimraf } from "rimraf";
 import { buildServer } from "./server.build";
 import { buildSvelte } from "./svelte.build";
+import { buildReact } from "./react.build";
 
 const start = performance.now();
 
@@ -15,6 +16,7 @@ async function clean() {
 	await clean();
 	await buildServer();
 	await buildSvelte();
+	await buildReact();
 
 	const end = performance.now();
 

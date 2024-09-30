@@ -1,0 +1,15 @@
+{
+	"name": "ragemp-esbuild-starter",
+	"url": "https://sander.lol",
+	"language": "en",
+
+	"maxplayers": 100,
+	"announce": false,
+
+	"port": 22005,
+	"bind": "127.0.0.1",
+
+	"allow-cef-debugging": true,
+	"voice-chat": true,
+	"csharp": "disabled"
+}

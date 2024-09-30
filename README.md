@@ -9,9 +9,9 @@
 # Roadmap
 | Web frameworks to be added  | Done |
 | --- | --- |
-| Svelte  | X  |
+| Svelte  | X |
+| React | X |
 | Vue  |   |
-| React |   |
 
 # Features
 * Full RAGE:MP typing for the client, server and CEF
