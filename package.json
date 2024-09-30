@@ -1,7 +1,5 @@
 {
 	"name": "ragemp-esbuild-starter",
-	"module": "index.ts",
-	"type": "module",
 	"scripts": {
 		"build": "npm run scripts/build.ts",
 		"lint": "bunx biome lint --write",
