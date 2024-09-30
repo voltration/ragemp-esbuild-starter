@@ -1,63 +1,62 @@
-import esbuildSvelte from "esbuild-svelte";
+import { mkdir, writeFile } from "node:fs/promises";
+import { basename, extname, join, relative } from "node:path";
 import { build } from "esbuild";
-import { sveltePreprocess } from "svelte-preprocess";
-import { mkdir, writeFile } from 'fs/promises';
-import { join, basename, extname, relative } from 'path';
+import esbuildSvelte from "esbuild-svelte";
 import { glob } from "glob";
+import { sveltePreprocess } from "svelte-preprocess";
 
 export async function buildSvelte() {
-    const rootDir = process.cwd();
-    const tempPath = join(rootDir, ".temp");
-    const outputDir = join(rootDir, "dist/client_packages/web");
-    const entryFiles = await glob("src/web/**/*.svelte");
+	const rootDir = process.cwd();
+	const tempPath = join(rootDir, ".temp");
+	const outputDir = join(rootDir, "dist/client_packages/web");
+	const entryFiles = await glob("src/web/**/*.svelte");
 
-    await mkdir(tempPath, { recursive: true });
-    await mkdir(outputDir, { recursive: true });
+	await mkdir(tempPath, { recursive: true });
+	await mkdir(outputDir, { recursive: true });
 
-    await Promise.all(
-        entryFiles.map(async (file) => {
-            const name = basename(file, extname(file));
-            const relativePath = relative(tempPath, file).replace(/\\/g, '/');
+	await Promise.all(
+		entryFiles.map(async (file) => {
+			const name = basename(file, extname(file));
+			const relativePath = relative(tempPath, file).replace(/\\/g, "/");
 
-            const tsContent = `
+			const tsContent = `
                 import App from "${relativePath}";
                 new App({
                     target: document.body
                 });
             `;
 
+			const tsFilePath = join(tempPath, `${name}.ts`);
+			await writeFile(tsFilePath, tsContent.trim());
+		}),
+	);
 
-            const tsFilePath = join(tempPath, `${name}.ts`);
-            await writeFile(tsFilePath, tsContent.trim());
-        })
-    );
+	await build({
+		bundle: true,
+		metafile: true,
+		platform: "browser",
+		entryPoints: [join(tempPath, "**/*.ts")],
+		mainFields: ["svelte", "browser", "module", "main"],
+		conditions: ["svelte", "browser"],
+		outdir: outputDir,
+		plugins: [
+			esbuildSvelte({
+				preprocess: sveltePreprocess({
+					typescript: {
+						tsconfigFile: "./src/web/tsconfig.json",
+					},
+				}),
+			}),
+		],
+	});
 
-    await build({
-        bundle: true,
-        metafile: true,
-        platform: "browser",
-        entryPoints: [join(tempPath, "**/*.ts")],
-        mainFields: ["svelte", "browser", "module", "main"],
-        conditions: ["svelte", "browser"],
-        outdir: outputDir,
-        plugins: [
-            esbuildSvelte({
-                preprocess: sveltePreprocess({
-                    typescript: {
-                        tsconfigFile: "./src/web/tsconfig.json"
-                    }
-                }),
-            }),
-        ],
-    });
+	await Promise.all(
+		entryFiles.map(async (file) => {
+			const name = basename(file, extname(file));
+			const jsFilePath = `./${name}.js`;
+			const cssFilePath = `./${name}.css`;
 
-    await Promise.all(
-        entryFiles.map(async (file) => {
-            const name = basename(file, extname(file));
-            const jsFilePath = `./${name}.js`;
-            const cssFilePath = `./${name}.css`;
-
-            const htmlContent = `
+			const htmlContent = `
                 <!doctype html>
                 <html lang="en">
                   <head>
@@ -73,8 +72,8 @@ export async function buildSvelte() {
                 </html>
             `;
 
-            const htmlFilePath = join(outputDir, `${name}.html`);
-            await writeFile(htmlFilePath, htmlContent.trim());
-        })
-    );
+			const htmlFilePath = join(outputDir, `${name}.html`);
+			await writeFile(htmlFilePath, htmlContent.trim());
+		}),
+	);
 }
