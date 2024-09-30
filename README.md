@@ -1,59 +1,56 @@
 <div align="center">
    <h1>ragemp-esbuild-starter</h1>
-    <p>Next generation starter for RAGE:MP development</p>
+   <p>A starter template designed for fast development.</p>
 </div>
 
-> [!WARNING]  
-> This project is not complete yet. I may change this at any time...
-
-# Roadmap
-| Web frameworks to be added  | Done |
-| --- | --- |
-| Svelte  | X |
-| React | X |
-| Vue  |   |
-
 # Features
-* Full RAGE:MP typing for the client, server and CEF
-* Fast build times (thanks to [esbuild](https://esbuild.github.io/))
-* Biome.js for linting and formatting
+* **Quickly integrate CEF components**: Create your Svelte or React components in the `src/web` directory. The bundler will handle the rest, converting them to HTML with complete RAGE:MP type safety inside your components.
+
+* **Fast compile times**: Enjoy fast builds thanks to [esbuild](https://esbuild.github.io/).
+
+* **Biome.js Integration**: Use [Biome.js](https://biomejs.dev/) to keep your codebase formatted and linted.
 
 # Installation
-> [!NOTE]  
-> While this tutorial and repository uses Bun, it will work 100% fine with Node. It uses Node.js functions to build.
+> [!NOTE]
+> While this project uses Bun by default, it works perfectly with Node.js as well. The build scripts rely on standard Node.js functions.
 
 ### Prerequisites
 * [Bun](https://bun.sh/) or [Node.js](https://nodejs.org/en)
 * [Git](https://git-scm.com/)
 
-### Clone and setup the repository
-Open a terminal, and write:
+### Cloning and Setting Up the Repository
+Open your terminal and run:
 ```
 git clone https://github.com/voltration/ragemp-esbuild-starter.git
 cd ragemp-esbuild-starter
 bun i
 ```
+### Add Server Files to the `dist` Directory
+> [!TIP] 
+> You can find the Linux server files [here](https://cdn.rage.mp/updater/prerelease/server-files/linux_x64.tar.gz).
 
-### Drop server files in dist directory
-> [!TIP]  
-> Linux server files can be located [here](https://cdn.rage.mp/updater/prerelease/server-files/linux_x64.tar.gz).
+Copy the `server-files` from your RAGE:MP installation and place them in the `dist` directory.
 
-From where your RAGE:MP installation is located, retrieve copy the contents for `server-files` and drop them into `dist`.
+# Development & Tips
+* All server and client logic starts from the `main.ts` files located in `src/server` and `src/client`. If you add more files, make sure to import them into the appropriate `main.ts` files.
 
-# Development and tips
-* Everything happens from the `main.ts` files located in `src/server` and `src/client`. To use other files you need to import them from `main.ts` from their respective directories.
-* `src/web` is a different story, every file from that directory is compiled into HTML files. They are compiled to `dist/client_packages/web`. If you were to use them with `mp.browser.new()` you would use the path `http://package/web/<FileName>.html`.
-* Configure server settings using `config.toml`
+* The `src/web` directory is handled separately. Each file in this directory is compiled into an HTML file and placed in `dist/client_packages/web`. When loading these files with `mp.browser.new()`, use the path: `http://package/web/<FileName>.html`.
 
-### Build your project
+* Server settings can be configured in the `config.toml` file.
+
+### Building Your Project
+To build your project, run:
 ```
-bun run build (add --watch if you want to watch src directory)
+bun run build
 ```
-
-### Linting and formatting
+To format your code, run:
 ```
-bun run lint
 bun run format
 ```
+To lint your code, run:
+```
+bun run lint
+```
 
-This project was created using `bun init` in bun v1.1.22. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+# Issues and Requests
+* If you have a bug report or a feature request, you can create a new [issue](https://github.com/voltration/ragemp-esbuild-starter/issues/new).
