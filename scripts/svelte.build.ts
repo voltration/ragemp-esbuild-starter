@@ -63,7 +63,7 @@ export async function buildSvelte() {
                   <head>
                     <meta charset="UTF-8" />
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                    <title>${name} - App</title> 
+                    <title>${name}</title> 
                     <link rel="stylesheet" href="${cssFilePath}" /> 
                   </head>
 

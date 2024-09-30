@@ -1,5 +1,4 @@
 import { build } from "esbuild";
-import { clean } from 'esbuild-plugin-clean';
 
 export async function buildServer() {
     /** server */
