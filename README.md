@@ -43,7 +43,7 @@ From where your RAGE:MP installation is located, retrieve copy the contents for 
 # Development and tips
 * Everything happens from the `main.ts` files located in `src/server` and `src/client`. To use other files you need to import them from `main.ts` from their respective directories.
 * `src/web` is a different story, every file from that directory is compiled into HTML files. They are compiled to `dist/client_packages/web`. If you were to use them with `mp.browser.new()` you would use the path `http://package/web/<FileName>.html`.
-
+* Configure server settings using `config.toml`
 
 ### Build your project
 ```
