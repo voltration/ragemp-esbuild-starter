@@ -7,6 +7,7 @@ import { buildReact } from "./react.build";
 import fs from "node:fs";
 import path from "node:path";
 import toml from "toml";
+import { buildVue } from "./vue.build";
 
 const start = performance.now();
 const file = fs.readFileSync(path.resolve("./config.toml"), "utf-8");
@@ -24,8 +25,10 @@ async function clean() {
 	await clean();
 	await buildServer();
 	await buildSvelte();
+	await buildVue();
 	await buildReact();
 	await buildConfig();
+
 	const end = performance.now();
 
 	console.log(
