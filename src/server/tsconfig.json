@@ -1,12 +1,11 @@
 {
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
-	  "types": ["../../node_modules/@ragempcommunity/types-server"],
-	  "baseUrl": ".",
-	  "paths": {
-		"@shared/*": ["../shared/*"]
-	  }
+		"types": ["../../node_modules/@ragempcommunity/types-server"],
+		"baseUrl": ".",
+		"paths": {
+			"@shared/*": ["../shared/*"]
+		}
 	},
 	"include": ["./**/*.ts"]
-  }
-  
+}

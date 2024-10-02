@@ -4,8 +4,15 @@ import { buildServer } from "./server.build";
 import { buildSvelte } from "./svelte.build";
 import { buildConfig } from "./conf.build";
 import { buildReact } from "./react.build";
+import fs from "node:fs";
+import path from "node:path";
+import toml from "toml";
 
 const start = performance.now();
+const file = fs.readFileSync(path.resolve("./config.toml"), "utf-8");
+const parsed = toml.parse(file);
+
+export const prod = parsed.config.production;
 
 async function clean() {
 	await rimraf(".temp");

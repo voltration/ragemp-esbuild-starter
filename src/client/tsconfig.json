@@ -1,12 +1,11 @@
 {
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
-	  "types": ["../../node_modules/@ragempcommunity/types-client"],
-	  "baseUrl": ".",
-	  "paths": {
-		"@shared/*": ["../shared/*"]
-	  }
+		"types": ["../../node_modules/@ragempcommunity/types-client"],
+		"baseUrl": ".",
+		"paths": {
+			"@shared/*": ["../shared/*"]
+		}
 	},
 	"include": ["./**/*.ts"]
-  }
-  
+}

@@ -1,4 +1,4 @@
-import { server } from "@shared/main"; 
+import { server } from "@shared/main";
 
 /** Send a welcome message to the player */
 mp.events.add("playerReady", (p: PlayerMp) => {

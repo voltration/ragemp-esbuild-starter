@@ -6,7 +6,11 @@ const Counter = () => {
 
 	return (
 		<>
-			<button type="button" onClick={increment} style={{ backgroundColor: "wheat" }}>
+			<button
+				type="button"
+				onClick={increment}
+				style={{ backgroundColor: "wheat" }}
+			>
 				{count}
 			</button>
 		</>

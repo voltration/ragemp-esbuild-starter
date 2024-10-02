@@ -3,6 +3,6 @@
  */
 
 export const server = {
-    serverName: "RAGE:MP Gamemode",
-    version: "1.0.0"
+	serverName: "RAGE:MP Gamemode",
+	version: "1.0.0",
 } as const;

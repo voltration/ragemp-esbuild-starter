@@ -1,4 +1,5 @@
 import { build } from "esbuild";
+import { prod } from "./build";
 
 export async function buildServer() {
 	/** server */
@@ -8,6 +9,8 @@ export async function buildServer() {
 		platform: "node",
 		entryPoints: ["src/server/main.ts"],
 		outfile: "dist/packages/core/index.js",
+		sourcemap: "inline",
+		minify: prod,
 	});
 
 	/** client */
@@ -17,5 +20,7 @@ export async function buildServer() {
 		platform: "node",
 		entryPoints: ["src/client/main.ts"],
 		outfile: "dist/client_packages/index.js",
+		sourcemap: "inline",
+		minify: prod,
 	});
 }

@@ -2,8 +2,8 @@
 	"name": "ragemp-esbuild-starter",
 	"scripts": {
 		"build": "npm run scripts/build.ts",
-		"lint": "bunx biome lint --write",
-		"format": "bunx biome format --write"
+		"lint": "npx biome lint --write",
+		"format": "npx biome format --write"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.2",
