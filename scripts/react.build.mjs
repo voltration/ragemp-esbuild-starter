@@ -2,7 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { basename, extname, join, relative } from "node:path";
 import { build } from "esbuild";
 import { glob } from "glob";
-import { prod } from "./build";
+import { prod } from "./build.mjs";
 
 export async function buildReact() {
 	const rootDir = process.cwd();

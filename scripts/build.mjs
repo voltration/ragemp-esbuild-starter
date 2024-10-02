@@ -1,13 +1,13 @@
 import { bold, green, white, yellow } from "colorette";
 import { rimraf } from "rimraf";
-import { buildServer } from "./server.build";
-import { buildSvelte } from "./svelte.build";
-import { buildConfig } from "./conf.build";
-import { buildReact } from "./react.build";
+import { buildServer } from "./server.build.mjs";
+import { buildSvelte } from "./svelte.build.mjs";
+import { buildConfig } from "./conf.build.mjs";
+import { buildReact } from "./react.build.mjs";
+import { buildVue } from "./vue.build.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import toml from "toml";
-import { buildVue } from "./vue.build";
 
 const start = performance.now();
 const file = fs.readFileSync(path.resolve("./config.toml"), "utf-8");

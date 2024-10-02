@@ -4,7 +4,7 @@ import { build } from "esbuild";
 import esbuildSvelte from "esbuild-svelte";
 import { glob } from "glob";
 import { sveltePreprocess } from "svelte-preprocess";
-import { prod } from "./build";
+import { prod } from "./build.mjs";
 import vuePlugin from "esbuild-plugin-vue3";
 
 export async function buildSvelte() {

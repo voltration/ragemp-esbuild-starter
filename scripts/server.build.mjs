@@ -1,5 +1,5 @@
 import { build } from "esbuild";
-import { prod } from "./build";
+import { prod } from "./build.mjs";
 
 export async function buildServer() {
 	/** server */
