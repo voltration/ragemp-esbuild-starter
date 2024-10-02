@@ -4,7 +4,7 @@
 </div>
 
 # Features
-* **Quickly integrate CEF components**: Create your Svelte or React components in the `src/web` directory. The bundler will handle the rest, converting them to HTML with complete RAGE:MP type safety inside your components.
+* **Quickly integrate CEF components**: Create your Svelte, React or Vue components in the `src/web` directory. The bundler will handle the rest, converting them to HTML with complete RAGE:MP type safety inside your components.
 
 * **Fast compile times**: Enjoy fast builds thanks to [esbuild](https://esbuild.github.io/).
 
@@ -53,6 +53,4 @@ bun run lint
 ```
 
 # Issues and Requests
-* This starter currently support Svelte components and React components, if Vue is another framework that is requested I will look into it. Note that you can use Vue using a script tag.
-
 * If you have a bug report or a feature request, you can create a new [issue](https://github.com/voltration/ragemp-esbuild-starter/issues/new).
