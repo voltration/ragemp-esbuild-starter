@@ -10,6 +10,7 @@ export async function buildServer() {
 		entryPoints: ["src/server/main.ts"],
 		outfile: "dist/packages/core/index.js",
 		sourcemap: "inline",
+		target: ["node14"],
 		minify: prod,
 	});
 
@@ -21,6 +22,7 @@ export async function buildServer() {
 		entryPoints: ["src/client/main.ts"],
 		outfile: "dist/client_packages/index.js",
 		sourcemap: "inline",
+		target: ["node14"],
 		minify: prod,
 	});
 }
