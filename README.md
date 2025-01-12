@@ -38,6 +38,8 @@ Copy the `server-files` from your RAGE:MP installation and place them in the `di
 
 * Server settings can be configured in the `config.toml` file.
 
+* Environment variables from `.env` are automatically injected when building.
+
 ### Building Your Project
 To build your project, run:
 ```
