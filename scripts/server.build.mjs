@@ -1,5 +1,12 @@
 import { build } from "esbuild";
 import { prod } from "./build.mjs";
+import dotenv from "dotenv";
+
+const parsed = dotenv.config().parsed || {};
+const env = Object.entries(parsed).reduce((acc, [key, value]) => ({
+	...acc,
+	[`process.env.${key}`]: JSON.stringify(value)
+}), {});
 
 export async function buildServer() {
 	/** server */
@@ -12,6 +19,7 @@ export async function buildServer() {
 		sourcemap: "inline",
 		target: ["node14"],
 		minify: prod,
+		define: env
 	});
 
 	/** client */

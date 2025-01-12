@@ -22,12 +22,12 @@
 		"svelte": "^4.2.19",
 		"svelte-preprocess": "^6.0.3",
 		"toml": "^3.0.0",
-		"vue": "^3.5.10"
+		"vue": "^3.5.10",
+		"del": "^8.0.0",
+		"dotenv": "^16.4.7"
 	},
 	"peerDependencies": {
 		"typescript": "^5.0.0"
 	},
-	"dependencies": {
-		"del": "^8.0.0"
-	}
+	"dependencies": {}
 }
